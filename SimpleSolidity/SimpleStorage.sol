@@ -4,7 +4,11 @@ pragma solidity 0.8.8; // 0.8.12 most popular
 contract SimpleStorage {
     // This gets initialized to zero!
     // The default visibility is internal
-    uint256 public favoriteNumber;
+    uint256 favoriteNumber;
+
+    // mapping
+    // initialize every string to no value : 0
+    mapping(string => uint256) public nameToFavoriteNumber;
 
     // Arrays & Structs
     struct People {
@@ -36,5 +40,6 @@ contract SimpleStorage {
         // people.push(People(_favoriteNumber, _name));
         People memory newPerson = People({favoriteNumber: _favoriteNumber, name: _name});
         people.push(newPerson);
+        nameToFavoriteNumber[_name] = _favoriteNumber;
     }
 }
