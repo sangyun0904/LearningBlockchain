@@ -6,6 +6,17 @@ contract SimpleStorage {
     // The default visibility is internal
     uint256 public favoriteNumber;
 
+    // Arrays & Structs
+    struct People {
+        uint256 favoriteNumber;
+        string name;
+    }
+
+    // uint256[] public favoriteNumbersList;
+    // Array requires index number to read states
+    People[] public people;
+
+
     function store(uint256 _favoriteNumber) public {
         favoriteNumber = _favoriteNumber;
     }
@@ -19,5 +30,11 @@ contract SimpleStorage {
 
     function add() public pure returns (uint256) {
         return(1 + 1);
+    }
+
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {
+        // people.push(People(_favoriteNumber, _name));
+        People memory newPerson = People({favoriteNumber: _favoriteNumber, name: _name});
+        people.push(newPerson);
     }
 }
