@@ -1,5 +1,5 @@
 //  SPDX-License-Identifier: MIT
-pragma solidity 0.8.8; // 0.8.12 most popular
+pragma solidity ^0.8.8; // 0.8.12 most popular
 
 contract SimpleStorage {
     // This gets initialized to zero!
